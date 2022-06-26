@@ -9,8 +9,7 @@
     "install-frontend": "cd ./Backend/frontend && npm install",
     "heroku-postbuild": "npm run install-frontend && npm run build",
     "server": "nodemon ./Backend/server.js",
-    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix Backend/frontend\"",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix Backend/frontend\""
+    "start": "npm run server" 
   },
   "keywords": [],
   "author": "",
