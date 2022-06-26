@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "build": "cd frontend && npm run build",
-    "install-frontend": "cd frontend && npm install",
+    "dev": "nodemon ./Backend/server.js",
+    "build": "cd ./Backend/frontend && npm run build",
+    "install-frontend": "cd ./Backend/frontend && npm install",
     "heroku-postbuild": "npm run install-frontend && npm run build",
-    "server": "nodemon server.js",
-    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix frontend\"",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix frontend\""
+    "server": "nodemon ./Backend/server.js",
+    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix Backend/frontend\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix Backend/frontend\""
   },
   "keywords": [],
   "author": "",
