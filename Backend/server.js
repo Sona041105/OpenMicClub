@@ -24,7 +24,6 @@ const corsOption = {
     origin: ['http://localhost:3000'],
 };
 app.use(cors(corsOption));
-app.use('/storage', express.static('storage'));
 
 const PORT = process.env.PORT || 5500;
 DbConnect();
@@ -38,7 +37,8 @@ const path = require("path");
 // Step 1:
 if(process.env.NODE_ENV=="production"){
 app.use(express.static(path.resolve(__dirname, "./frontend/build")));
-app.use(express.static(path.resolve(__dirname, "./storage")));
+app.use('/storage', express.static('storage'));
+
 // Step 2:
 app.get("*", function (request, response) {
   response.sendFile(path.resolve(__dirname, "./frontend/build", "index.html"));
