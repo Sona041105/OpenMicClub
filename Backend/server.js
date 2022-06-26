@@ -28,8 +28,19 @@ app.use('/storage', express.static('storage'));
 
 const PORT = process.env.PORT || 5500;
 DbConnect();
+
 app.use(express.json({ limit: '8mb' }));
 app.use(router);
+
+
+const path = require("path");
+
+// Step 1:
+app.use(express.static(path.resolve(__dirname, "./frontend/build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./frontend/build", "index.html"));
+});
 
 app.get('/', (req, res) => {
     res.send('Hello from express Js');
