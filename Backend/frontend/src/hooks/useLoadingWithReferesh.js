@@ -13,6 +13,7 @@ export function useLoadingWithRefresh() {
     useEffect(() => {
         (async () => {
             try {
+                console.log(`${process.env.REACT_APP_API_URL}/api/refresh`)
                 const { data } = await axios.get(
                     `${process.env.REACT_APP_API_URL}/api/refresh`,
                     {
